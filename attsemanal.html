@@ -16,6 +16,41 @@
         alert("Seu caracter é: "+ input );
     }
     -->
+
+const userNumber = parseInt(prompt("Digite um número inteiro positivo:"));
+
+if (!isNaN(userNumber) && userNumber > 0) {
+    const isPrime = num => {
+        for (let i = 2; i < num; i++)
+            if (num % i === 0) return false;
+        return num !== 1;
+    };
+
+    alert(isPrime(userNumber) ? "Número primo" : "Número não primo");
+} else {
+    alert("Por favor, digite um valor válido.");
+}
+
+const userNumber = parseInt(prompt("Digite um número inteiro positivo:"));
+
+if (!isNaN(userNumber) && userNumber >= 0) {
+    alert(userNumber % 2 === 0 ? "Número par" : "Número ímpar");
+} else {
+    alert("Por favor, digite um valor válido.");
+}
+
+const userNumber = parseInt(prompt("Digite um número inteiro positivo:"));
+
+if (!isNaN(userNumber) && userNumber >= 0) {
+    let factorial = 1;
+    for (let i = 1; i <= userNumber; i++) {
+        factorial *= i;
+    }
+    alert(`O fatorial de ${userNumber} é ${factorial}`);
+} else {
+    alert("Por favor, digite um valor válido.");
+}
+
 </script>
 </head>
 <body>
