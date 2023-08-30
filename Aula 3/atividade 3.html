@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 3</title>
+</head>
+<body>
+    <label for="textInput">Insira um texto:</label>
+    <input type="text" id="textInput">
+    <button onclick="verifyPalindrome()">Verificar</button>
+  
+    <script>
+      function verifyPalindrome() {
+        const text = document.getElementById("textInput").value.trim().toLowerCase();
+        const reversedText = text.split('').reverse().join('');
+  
+        if (text === reversedText) {
+          alert("O texto é um palíndromo!");
+        } else {
+          alert("O texto não é um palíndromo.");
+        }
+      }
+    </script>
+</body>
+</html>
