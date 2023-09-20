@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1.1</title>
+
+</head>
+<body>
+    <script>
+        let dado = prompt("Digite um dado: ");
+        if(confirm("Deseja verificar o tipo do dado informado?")){
+            
+            if (!isNaN(dado)) {
+                confirma = parseInt(dado);
+                document.write("O tipo do dado é: "+ typeof(confirma));
+            }
+            else {
+                if (dado == "true" || dado == "false"){
+                  confirma = false;
+                    document.write("O tipo do dado é: "+ typeof(confirma));
+                }
+                else {
+                    document.write("O tipo do dado é: "+ typeof(dado));
+                }
+            }
+
+        }
+        else{
+            document.write("Obrigado por visitar esta página");
+        }
+
+    </script>
+        <h1>Ex1.1</h1>
+        <a href="https://gbrlszsml.github.io/LAB-ENG-SOF/index.html">Voltar</a>
+</body>
+</html>
