@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tipo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tipo-label {
+            flex-basis: 30%;
+            text-align: right;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        .tipo-select {
+            flex-basis: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .campos-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .campos-container > div {
+            flex-basis: calc(48% - 10px);
+        }
+
+        .campos-container > div label {
+            display: block;
+        }
+
+        .campos-container > div input {
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function mostrarCamposTipo() {
+            var tipo = document.getElementById("tipo").value;
+            var camposProfessor = document.getElementById("camposProfessor");
+            var camposAluno = document.getElementById("camposAluno");
+
+            if (tipo === "professor") {
+                camposProfessor.style.display = "block";
+                camposAluno.style.display = "none";
+            } else if (tipo === "aluno") {
+                camposProfessor.style.display = "none";
+                camposAluno.style.display = "block";
+            } else {
+                camposProfessor.style.display = "none";
+                camposAluno.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Cadastro</h2>
+    <form action="processar_cadastro.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" required>
+
+        <label for="telefone_fixo">Telefone Fixo:</label>
+        <input type="tel" id="telefone_fixo" name="telefone_fixo">
+
+        <label for="telefone_celular">Telefone Celular:</label>
+        <input type="tel" id="telefone_celular" name="telefone_celular" required>
+
+        <div class="tipo-container">
+            <label class="tipo-label" for="tipo">Tipo:</label>
+            <select class="tipo-select" id="tipo" name="tipo" onchange="mostrarCamposTipo()" required>
+                <option value="">Escolha uma opção</option>
+                <option value="professor">Professor</option>
+                <option value="aluno">Aluno</option>
+            </select>
+        </div>
+
+        <div class="campos-container">
+            <div id="camposProfessor" style="display: none;">
+                <label for="area">Área:</label>
+                <input type="text" id="area" name="area">
+
+                <label for="matricula_professor">Matrícula:</label>
+                <input type="text" id="matricula_professor" name="matricula_professor">
+
+                <label for="lattes">Lattes:</label>
+                <input type="url" id="lattes" name="lattes">
+            </div>
+
+            <div id="camposAluno" style="display: none;">
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" name="curso">
+
+                <label for="matricula_aluno">Matrícula:</label>
+                <input type="text" id="matricula_aluno" name="matricula_aluno">
+            </div>
+        </div>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>
